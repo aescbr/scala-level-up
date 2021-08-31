@@ -45,6 +45,7 @@ object Main extends {
                 n= getDigits(value))
             ).foreach(println)
           }
+          case _ =>
         }
       }else{
         val result = separateLines(text)
