@@ -2,15 +2,16 @@
 object Main extends {
 
   def main(args: Array[String]): Unit = {
-    substitutionSed(text, commandStr)
-  }
 
-  var text = "unix is great os. unix is opensource. unix is free os.\n" +
+    var text = "unix is great os. unix is opensource. unix is free os.\n" +
     "learn operating system unix.\n" +
     "unix linux which one you choose.\n" +
     "unix is easy to learn. unix is a multiuser os.Learn unix .unix is a powerful."
 
-  val commandStr: String = "s/unix/linux/2g"
+    val commandStr: String = "s/unix/linux/2g"
+
+    substitutionSed(text, commandStr)
+  }
 
   def substitutionSed(text: String, commandStr: String) :Unit = {
   val spliced = commandStr.split("/")
@@ -62,8 +63,7 @@ object Main extends {
   def replaceNthAppearance(str: String, toFind: String,
                            toReplace: String, count: Int = 1, n: Int, acc: String = ""): String = {
     if(count < n) {
-      val x = str.indexOf(toFind)
-      val index = x + toFind.length
+      val index = str.indexOf(toFind) + toFind.length
       replaceNthAppearance(str.substring(index, str.length), toFind,
         toReplace, count + 1, n, acc + str.substring(0, index))
     }else{
@@ -75,8 +75,7 @@ object Main extends {
   def replaceAllNthAppearance(str: String, toFind: String,
                               toReplace: String, count: Int = 1, n: Int, acc: String = ""): String = {
     if(count < n) {
-      val x = str.indexOf(toFind)
-      val index = x + toFind.length
+      val index = str.indexOf(toFind) + toFind.length
       replaceAllNthAppearance(str.substring(index, str.length), toFind,
         toReplace, count + 1, n, acc + str.substring(0, index))
     }else{
